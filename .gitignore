@@ -1,0 +1,16 @@
+*.idea/
+db.sqlite3
+.DS_Store
+db.sqlite3.journal
+*.pyc
+python/
+*.log
+.coverage
+nosetests.xml
+tmpfile
+!.vc
+*~
+*journal
+private.py
+shelf.shelve*
+articles.csv

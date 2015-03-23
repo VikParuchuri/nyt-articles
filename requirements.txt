@@ -1,0 +1,4 @@
+SQLAlchemy==0.9.9
+requests==2.6.0
+ipython
+python-dateutil==2.4.1

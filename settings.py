@@ -14,7 +14,7 @@ END_DATE = datetime.date(2015, 3, 22)
 QUERY_KEY = "query_count"
 LAST_DAY_KEY = "last_day"
 QUERY_LIMIT = 10000
-MAX_HIT_PAGES = 100
+MAX_HIT_PAGES = 200
 HITS_PER_PAGE = 10
 
 API_KEY = ""

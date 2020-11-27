@@ -19,7 +19,7 @@ Problems this addresses
 --------------------
 
 * The NYT API only allows `10,000` requests per day.  This repo will sleep until the next day once the limit is hit.
-* The NYT API only allows `100` pages of results per search query (`1000` articles total).  But sometimes you want to get articles for a long time period.  This gets around it by adding `start_date` and `end_date`, automatically segmenting the articles into smaller sets, and downloading the whole range through multiple queries.
+* The NYT API only allows `200` pages of results per search query (`2000` articles total).  But sometimes you want to get articles for a long time period.  This gets around it by adding `start_date` and `end_date`, automatically segmenting the articles into smaller sets, and downloading the whole range through multiple queries.
 * If you get disconnected, restarting in the right spot can be a pain.  This repo stores everything in the database, which enables it to restart in the right spot without any additional queries.
 * There are a lot of strange error conditions that can pop up as you go through the process.  This can deal with some of them.
 

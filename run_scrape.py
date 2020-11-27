@@ -24,7 +24,7 @@ log.addHandler(ch)
 
 
 def access_api(term, page, start_date, end_date):
-    time.sleep(1)
+    time.sleep(6)
     start_string = start_date.strftime("%Y%m%d")
     end_string = end_date.strftime("%Y%m%d")
     url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q={0}&page={1}&api-key={2}&begin_date={3}&end_date={4}".format(term, page, urllib.parse.quote_plus(settings.API_KEY), start_string, end_string)

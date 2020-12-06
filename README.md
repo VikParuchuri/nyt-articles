@@ -2,6 +2,8 @@
 
 This repo scrapes info about articles from the New York Times API.  It doesn't get the full articles, just the metadata, headline, and snippets.
 
+This fork rotates API keys and updates query limits.
+
 Getting Started
 -------------
 

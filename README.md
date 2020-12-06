@@ -4,6 +4,11 @@ This repo scrapes info about articles from the New York Times API.  It doesn't g
 
 This fork rotates API keys and updates query limits.
 
+## TODO
+
+* Adjust shelf to account for rotating keys
+* Better date and page logic
+
 Getting Started
 -------------
 

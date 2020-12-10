@@ -27,7 +27,12 @@ def access_api(term, page, start_date, end_date):
     time.sleep(6 / len(settings.ROTATE_KEYS))
     start_string = start_date.strftime("%Y%m%d")
     end_string = end_date.strftime("%Y%m%d")
-    filter_query = f'body:("{term}")'
+
+    if isinstance(term, str):
+        filter_query = f'body:("{term}")'
+    else:
+        term_disjunction = 'OR'.join('"' + t + '"' for t in term)
+        filter_query = f'body:({term_disjunction})'
 
     global key_index
     url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?fq={0}&page={1}&api-key={2}&begin_date={3}&end_date={4}".format(

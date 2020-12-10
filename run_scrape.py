@@ -22,12 +22,17 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 ch.setFormatter(formatter)
 log.addHandler(ch)
 
-
+key_index = 0
 def access_api(term, page, start_date, end_date):
-    time.sleep(6)
+    time.sleep(6 / len(settings.ROTATE_KEYS))
     start_string = start_date.strftime("%Y%m%d")
     end_string = end_date.strftime("%Y%m%d")
-    url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q={0}&page={1}&api-key={2}&begin_date={3}&end_date={4}".format(term, page, urllib.parse.quote_plus(settings.API_KEY), start_string, end_string)
+    filter_query = f'body:("{term}")'
+
+    global key_index
+    url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?fq={0}&page={1}&api-key={2}&begin_date={3}&end_date={4}".format(
+        filter_query, page, urllib.parse.quote_plus(settings.ROTATE_KEYS[key_index % len(settings.ROTATE_KEYS)]), start_string, end_string)
+    key_index += 1
 
     resp = None
     content = None
@@ -42,10 +47,14 @@ def access_api(term, page, start_date, end_date):
             resp = requests.get(url)
         try:
             data = json.loads(resp.content.decode("utf-8"))
-            content = data["response"]
         except ValueError:
             log.error("Could not decode response: {0}".format(resp.content))
             raise ValueError
+        try:
+            content = data["response"]
+        except KeyError:
+            log.error(f'Sleeping for 20 seconds: {data}')
+            time.sleep(20)
         i += 1
 
     return content

@@ -9,7 +9,7 @@ Getting Started
 
 * The first step is to sign up for an API key.  You can get one [here](http://developer.nytimes.com/), by clicking on the `keys` link to the left.
 * Now, clone this repo and go into the folder.
-    * `git clone git@github.com:VikParuchuri/nyt-articles.git`
+    * `git clone git@github.com:jsonkao/nyt-articles.git`
     * `cd nyt-articles`
 * Make a file called `private.py`, and add the following lines to it (with your values instead of the shown ones).
     * `SCRAPE_TERMS = ["list", "of", "terms", "you", "want", "to", "get", "articles", "for"]`

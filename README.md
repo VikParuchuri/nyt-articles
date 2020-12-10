@@ -1,13 +1,8 @@
+This fork adds API key rotation and updates query limits.
+
 # NYT Article Scraper
 
 This repo scrapes info about articles from the New York Times API.  It doesn't get the full articles, just the metadata, headline, and snippets.
-
-This fork rotates API keys and updates query limits.
-
-## TODO
-
-* Adjust shelf to account for rotating keys
-* Better date and page logic
 
 Getting Started
 -------------
@@ -17,10 +12,13 @@ Getting Started
     * `git clone git@github.com:VikParuchuri/nyt-articles.git`
     * `cd nyt-articles`
 * Make a file called `private.py`, and add the following lines to it (with your values instead of the shown ones).
-    * `API_KEY = "INSERT_YOUR_KEY_HERE"`
     * `SCRAPE_TERMS = ["list", "of", "terms", "you", "want", "to", "get", "articles", "for"]`
 * Run `python run_scrape.py` to download all the article information and save it to the database.  You'll see a lot of log messages as this goes on.
 * Run `python database_to_csv.py` to output all of the articles from the database to `articles.csv`.
+
+## Key rotation
+
+Sign up for however many keys you want to. I think it has to be with different emails, but I'm not sure. Add those keys to a list in `private.py` called `ROTATE_KEYS`.
 
 Problems this addresses
 --------------------
@@ -29,6 +27,11 @@ Problems this addresses
 * The NYT API only allows `200` pages of results per search query (`2000` articles total).  But sometimes you want to get articles for a long time period.  This gets around it by adding `start_date` and `end_date`, automatically segmenting the articles into smaller sets, and downloading the whole range through multiple queries.
 * If you get disconnected, restarting in the right spot can be a pain.  This repo stores everything in the database, which enables it to restart in the right spot without any additional queries.
 * There are a lot of strange error conditions that can pop up as you go through the process.  This can deal with some of them.
+
+## TODO
+
+* Adjust shelf to account for rotating keys
+* Better date and page logic
 
 Additional configuation
 --------------------

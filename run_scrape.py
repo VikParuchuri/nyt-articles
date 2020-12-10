@@ -31,8 +31,7 @@ def access_api(term, page, start_date, end_date):
     if isinstance(term, str):
         filter_query = f'body:("{term}")'
     else:
-        term_disjunction = 'OR'.join('"' + t + '"' for t in term)
-        filter_query = f'body:({term_disjunction})'
+        filter_query = ' OR '.join(f'body:("{term}")' for t in term)
 
     global key_index
     url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?fq={0}&page={1}&api-key={2}&begin_date={3}&end_date={4}".format(

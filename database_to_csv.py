@@ -18,7 +18,7 @@ def extract_field(data, field):
 
 def dump_articles():
     session = Session()
-    articles = session.query(Article).all()
+    articles = session.query(Article).filter(Article.term.in_(settings.SCRAPE_TERMS)).all()
     headers = ["term"] + settings.ARTICLE_OUTPUT_FIELDS
     article_list = [headers]
     for a in articles:

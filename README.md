@@ -20,6 +20,10 @@ Getting Started
 
 Sign up for however many keys you want to. I think it has to be with different emails, but I'm not sure. Add those keys to a list in `private.py` called `ROTATE_KEYS`.
 
+## Multiple scrape terms
+
+If you want to scrape multiple terms in one go, the string in `SCRAPE_TERMS` should be a comma-separated list of terms (e.g. `SCRAPE_TERMS = ["forced labor, modern slavery"]`).
+
 Problems this addresses
 --------------------
 

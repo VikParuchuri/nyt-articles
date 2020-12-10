@@ -13,4 +13,6 @@ tmpfile
 *journal
 private.py
 shelf.shelve*
-articles.csv
+*.csv
+.vscode
+Pipfile*

@@ -1,5 +1,5 @@
 import os
-import datetime
+from datetime import date
 
 BASE_PATH = os.path.dirname(__name__)
 DB_PATH = os.path.join(BASE_PATH, "db.sqlite3")
@@ -8,8 +8,8 @@ OUTPUT_CSV_PATH = os.path.join(BASE_PATH, "articles.csv")
 
 SHELF_PATH = os.path.join(BASE_PATH, "shelf.shelve")
 
-START_DATE = datetime.date(1945, 1, 1)
-END_DATE = datetime.date(2015, 3, 22)
+START_DATE = date(2010, 11, 24)
+END_DATE = date(2020, 11, 24)
 
 QUERY_KEY = "query_count"
 LAST_DAY_KEY = "last_day"

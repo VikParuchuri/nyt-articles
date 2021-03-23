@@ -21,6 +21,7 @@ API_KEY = ""
 
 SCRAPE_TERMS = []
 ARTICLE_OUTPUT_FIELDS = ["snippet", "lead_paragraph", "abstract", "source", "print_page", "headline__main", "headline__print_headline", "pub_date", "news_desk", "section_name", "document_type", "web_url", "type_of_material", "word_count", "_id"]
+ARTICLE_OUTPUT_FIELDS = ["source", "headline__main", "pub_date", "news_desk", "section_name", "document_type", "web_url", "_id"]
 
 
 from private import *
